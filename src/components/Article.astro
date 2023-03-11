@@ -1,0 +1,29 @@
+---
+export interface Props {
+  title: string;
+  body: string;
+  href: string;
+}
+
+const { href, title, body } = Astro.props;
+---
+
+<article>
+  <h2><a href={href}>{title}</a></h2>
+  <Fragment set:html={body} />
+</article>
+<style>
+  article {
+    @apply bg-earth-100 text-earth-500 rounded-lg px-6 py-4 text-lg my-4;
+  }
+  article h2 {
+    @apply text-2xl my-3;
+  }
+  article h3 {
+    @apply text-xl my-4;
+  }
+  article h2,
+  article h3 {
+    @apply text-center;
+  }
+</style>

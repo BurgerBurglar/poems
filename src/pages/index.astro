@@ -1,15 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import * as frontPage from "../content/写在前面.md";
+import Article from "../components/Article.astro";
 ---
 
 <Layout title="人在天涯 - 诗文小集">
   <h1>人在天涯 - 诗文小集</h1>
   <main>
-    <article>
-      <h2>{frontPage.frontmatter.title}</h2>
-      <p>{frontPage.rawContent()}</p>
-    </article>
+    <Article
+      href={frontPage.url}
+      title={frontPage.frontmatter.title}
+      body={frontPage.compiledContent()}
+    />
   </main>
 </Layout>
 
