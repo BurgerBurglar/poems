@@ -8,7 +8,7 @@ import Article from "../components/Article.astro";
   <h1>人在天涯 - 诗文小集</h1>
   <main>
     <Article
-      href={frontPage.url}
+      id={frontPage.frontmatter.id}
       title={frontPage.frontmatter.title}
       body={frontPage.compiledContent()}
     />
