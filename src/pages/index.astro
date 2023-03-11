@@ -1,17 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import * as frontPage from "../content/写在前面.md";
 import Article from "../components/Article.astro";
+
+const posts = (await Astro.glob("../content/*.md")).sort(
+  (a, z) => a.frontmatter.id - z.frontmatter.id
+);
 ---
 
 <Layout title="人在天涯 - 诗文小集">
   <h1>人在天涯 - 诗文小集</h1>
   <main>
-    <Article
-      id={frontPage.frontmatter.id}
-      title={frontPage.frontmatter.title}
-      body={frontPage.compiledContent()}
-    />
+    {
+      posts.map((post) => (
+        <Article
+          id={post.frontmatter.id}
+          title={post.frontmatter.title}
+          body={post.compiledContent()}
+        />
+      ))
+    }
   </main>
 </Layout>
 
