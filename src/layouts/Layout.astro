@@ -20,30 +20,37 @@ const { title } = Astro.props;
       <slot />
     </div>
   </body>
+  <style is:global>
+    html {
+      @apply scroll-smooth;
+    }
+    body {
+      @apply min-h-screen bg-earth-50 selection:text-earth-200 selection:bg-earth-500;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply font-bold text-earth-500;
+    }
+
+    h1 {
+      @apply text-3xl;
+    }
+
+    p {
+      @apply leading-loose;
+    }
+
+    /* this doesn't work in Article.astro for some reason */
+    blockquote {
+      @apply my-2 py-1 pl-6 pr-2 border-l-4 border-earth-400 text-left;
+    }
+    blockquote p {
+      @apply leading-normal my-3 first-of-type:mt-0 last-of-type:mb-0;
+    }
+  </style>
 </html>
-<style is:global>
-  body {
-    @apply min-h-screen bg-earth-50;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-bold text-earth-500;
-  }
-
-  h1 {
-    @apply text-3xl;
-  }
-
-  /* this doesn't work in Article.astro for some reason */
-  p {
-    @apply leading-loose my-1;
-  }
-  .note {
-    @apply my-2 py-1 px-4 border-l-4 border-earth-400 leading-relaxed;
-  }
-</style>
